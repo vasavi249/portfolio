@@ -1,15 +1,21 @@
-const text = "B.Tech CSE (Data Science) Student | Aspiring Web Developer";
-let i = 0;
+// Navbar background change on scroll
+window.addEventListener("scroll", function() {
+    const header = document.querySelector("header");
+    header.style.background = window.scrollY > 50 ? "#ffffff" : "transparent";
+});
 
-function typing() {
-    if (i < text.length) {
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typing, 60);
+// Typing Effect
+const text = "Computer Science Student | Data Science Enthusiast";
+let index = 0;
+
+function typeEffect() {
+    if (index < text.length) {
+        document.querySelector(".typing").textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 50);
     }
 }
 
-window.onload = typing;
-
-document.getElementById("year").innerHTML =
-    "© " + new Date().getFullYear() + " G. Venkata Vasavi Latha";
+window.onload = function() {
+    typeEffect();
+};
